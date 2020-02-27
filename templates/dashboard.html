@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="ui container">
+  <div class="ui basic segment">
+    <h2 class="ui header">
+      <div class="content">
+        Dashboard
+        <div class="sub header">You can access and modified your post/articles and others</div>
+      </div>
+    </h2>
+    <div class="ui hidden divider"></div>
+    <p>
+      <h3 class="ui lft floated header">
+        Articles List
+      </h3>
+      <div class="ui right floated header">
+      <div class="content">
+        <div class="sub header">
+          
+          <a class="ui right orange small label" href="{% url 'article:addarticle' %}">
+            <i class="plus icon"></i> New Article
+          </a>
+
+        </div>
+      </div>
+    </div>
+      {% if articles %}
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Publish Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for article in articles  %}
+
+      <tr>
+        <td><a href="{% url 'article:detail' article.id %}">{{article.title}}</a></td>
+        <td style="width:200px">{{article.author.username}}</td>
+        <td style="width:200px">{{article.create_date}}</td>
+        <td  style="width:20px" class="right aligned">
+          <div class="ui mini compact dropdown">
+            <input type="hidden" name="gender">
+            <i class="ellipsis vertical icon"></i>
+            <div class="menu">
+              <a class="item" href="{% url 'article:remove' article.id %}"><i class="trash right alternate outline icon"></i> Delete</a>
+              <a class="item" href="{% url 'article:update' article.id %}"><i class="pen fancy icon"></i> Edit</a>
+            </div>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+        <script>       
+          $('.ui.dropdown')
+            .dropdown()
+          ;
+        </script>
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="ui warning icon message">
+    <i class="exclamation triangle icon"></i>
+    <div class="content">
+      <div class="header">
+        List is empty. 
+      </div>
+      <p>Can not find any article. You can write a <a href="{% url 'article:addarticle' %}">new article</a></p>
+    </div>
+  </div>
+  {% endif %}
+    </p>
+    
+  </div>
+</div>
+
+
+
+{% endblock body %}

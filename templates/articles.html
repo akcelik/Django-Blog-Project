@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="ui container">
+  <div class="ui basic segment">
+    <h2 class="ui header">
+      <div class="content">
+        Articles
+        <div class="sub header">You can access and modified your post/articles and others</div>
+      </div>
+    </h2>
+
+    {% if articles %}
+        {% for article in articles %}
+            
+            <div class="ui basic segment">
+                <h3 class="ui header">
+                <div class="content">
+                    {{article.title}}
+                    <div class="sub header">
+                        {{article.create_date}}, {{article.author}}
+                    </div>
+                </div>
+                </h3>
+                <p>
+                {% if article.article_image %}
+                    <img class="ui fluid image" src="{{article.article_image.url}}">
+                {% endif %}
+                    
+                    {{article.content|safe|truncatechars:100}} <a class="ui small orange label" href="{% url 'article:detail' article.id %}">Read more</a>
+                </p>
+            </div>
+            <div class="ui divider"></div>
+        {% endfor %}
+    {% else %}
+        <div class="ui warning icon message">
+            <i class="exclamation triangle icon"></i>
+            <div class="content">
+            <div class="header">
+                List is empty. 
+            </div>
+            <p>Can not find any article.</p>
+            </div>
+        </div>
+    {% endif %}
+
+    </div>
+</div>
+
+
+
+
+{% endblock body %}

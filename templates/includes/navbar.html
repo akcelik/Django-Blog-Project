@@ -1,0 +1,32 @@
+<div class="ui top fixed borderless menu">
+    <div class="ui container">
+    <a class="header item" href="{% url 'index' %}"><i class="python large icon"></i> Python Blog</a>
+    <a class="active item" href="{% url 'article:articles' %}">Article</a>
+    <a class="item" href="{% url 'about' %}">About</a>
+    
+    
+    <div class="right menu">
+        <div class="item">
+            <form class="ui form" action="{% url 'article:articles' %}">
+            {% csrf_token %}
+                <div class="ui transparent icon  input">
+                    <input type="text" name="keyword" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </form>
+        </div>
+            <div class="ui dropdown item">
+                Welcome {{request.user.username}}<i class="dropdown icon"></i>
+                <div class="menu">
+                    {% if request.user.is_authenticated %}
+                    <a class="item" href="{% url 'user:logout' %}">Logout</a>
+                    <a class="item" href="{% url 'article:dashboard' %}">Dashboard</a>
+                    {% else %}
+                    <a class="item" href="{% url 'user:login' %}">Login</a>
+                    <a class="item" href="{% url 'user:register' %}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

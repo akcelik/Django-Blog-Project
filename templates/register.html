@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="ui container">
+  <div class="ui basic segment">
+    <h2 class="ui header">
+      <div class="content">
+        Register
+        <div class="sub header">Become a member our platform and publish your article</div>
+      </div>
+    </h2>
+    
+    <form class="ui small form" method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <div class="ui tiny rig buttons">
+        <button class="ui button">Cancel</button>
+        <div class="or"></div>
+        <button type="submit" class="ui orange button">Register</button>
+      </div>
+    </form>
+      
+    <div class="ui section hidden divider"></div>
+    <p>
+      <h2 class="ui header">
+        Become a member
+      </h2>
+      <p>You need to autorized access for publish articles on this platform.</p>
+      <p>Become a member our platform and publish your article </p>
+    </p>
+    
+  </div>
+</div>
+
+{% endblock body %}

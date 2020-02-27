@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="ui container">
+  <div class="ui basic segment">
+    <h2 class="ui header">
+      <div class="content">
+        Update Article
+        <div class="sub header">Type your article and publish...</div>
+      </div>
+    </h2>
+    
+   <form class="ui small form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{form.as_p}}
+      <div class="ui tiny rig right floated buttons">
+        <button class="ui button">Cancel</button>
+          <div class="or"></div>
+        <button type="submit" class="ui orange button">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock body %}

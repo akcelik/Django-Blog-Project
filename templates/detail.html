@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="ui container">
+  <div class="ui basic segment">
+    <h2 class="ui header">
+      <div class="content">
+        {{article.title}}
+        <div class="sub header">
+            {{article.create_date}}, {{article.author}}
+        </div>
+      </div>
+    </h2>
+    <p>
+    {% if article.article_image %}
+        <img class="ui fluid image" src="{{article.article_image.url}}">
+    {% endif %}
+        
+        {{article.content|safe}}
+    </p>
+<div class="ui hidden divider"></div>
+    <div class="ui small comments">
+  <h3 class="ui dividing header">Comments</h3>
+  
+  {% if comments %}
+    {% for comment in comments %}
+      <div class="comment">
+        <div class="content">
+          <a class="author">{{comment.comment_author}}</a>
+          <div class="metadata">
+            <span class="date">{{comment.comment_date}}</span>
+          </div>
+          <div class="text">
+            {{comment.comment_content}}
+          </div>
+          {% comment %} <div class="actions">
+            <a class="reply">Reply</a>
+          </div> {% endcomment %}
+        </div>
+    </div>
+    {% endfor %}
+  
+  {% else %}
+    <div class="ui info message">
+      <div class="content">
+        <p>
+        <i class="comment dots outline icon"></i>
+          There is no comment on this article.
+          Do you want to be the first commenter
+        </p>
+      </div>
+    </div>
+  {% endif %}
+
+
+
+  <form class="ui reply form" method="POST" action="{% url 'article:comment' article.id %}">
+  {% csrf_token %}
+    <div class="field">
+      <label>Name</label>
+      <input type="text" name="comment_author" placeholder="Author">
+    </div>
+    <div class="field">
+      <label>Comment</label>
+      <textarea name="comment_content"></textarea>
+    </div>
+    <button type="submit" class="ui orange labeled submit icon tiny button">
+      <i class="icon edit"></i> Add Comment
+    </button>
+  </form>
+</div>
+  </div>
+</div>
+
+
+{% endblock body %}
