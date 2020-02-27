@@ -6,6 +6,59 @@
     <i class="braille icon"></i>
     Welcom to our blog
   </div>
-  <div class="ui orange button">Add Document</div>
+  <a class="ui orange button" href="{% url 'user:register' %}">Register</a>
 </div>
+<div class="ui container">
+<div class="ui hidden divider"></div>
+  
+  <h1 class="ui huge header">Python(Djjango) and Semantic-UI App</h1>
+  <p class="lead">
+    This aplication developed with Python (3.6) You can find required modules and versions below
+  </p>
+  <h4>Github</h4>
+   <p>
+    You can find application source codes on github <a href="https://github.com/akcelik/django">https://github.com/akcelik/django</a>
+  </p>
+  <h4>Requirements</h4>
+  <div class="ui bulleted list">
+    <div class="item">Django (3.0.3)</div>
+    <div class="item">django-ckeditor (5.9.0)</div>
+    <div class="item">django-cleanup (4.0.0)</div>
+    <div class="item">django-crispy-forms (1.8.1)</div>
+    <div class="item">django-js-asset (1.2.2)</div>
+  </div>
+  <div class="ui section divider"></div>
+  <h3 class="ui huge header">Database</h3>
+  <p>
+    Postgresql database is used in the project
+  </p>
+  <p>
+  "PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance."
+  </p>
+  <h4>Configuration</h4>
+  <p>For the application to run smoothly, you should make the following configuration according to its environment.</p>
+  settings.py
+  <pre>
+  ...
+    DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'databasename',
+          'USER': 'username',
+          'PASSWORD': 'password',
+          'HOST': 'postgresqlhost',
+          'PORT': '5432',
+      }
+  }
+  ...
+  
+  </pre>
+  <div class="ui top right attached label">Code</div>
+  <h2 class="ui huge header">
+    Browsers
+  </h2>
+  <p>
+    Please use Chrome browser to view the app properly
+  </p>
+<div class="ui hidden divider"></div>
 {% endblock body %}<h3>Home Page</h3>
