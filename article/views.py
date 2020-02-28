@@ -63,10 +63,11 @@ def updateArticle(request, id):
         return redirect("article:dashboard")
     return render(request, "update.html",{"form": form})
 
+@login_required(login_url="user:login")
 def addComment(request,id):
     article = get_object_or_404(Article,id=id)
     if request.method == "POST":
-        comment_author = request.POST.get("comment_author")
+        comment_author = request.user
         comment_content = request.POST.get("comment_content")
 
         newComment = Comment(comment_author = comment_author, comment_content = comment_content)
