@@ -33,9 +33,6 @@
           <div class="text">
             {{comment.comment_content}}
           </div>
-          {% comment %} <div class="actions">
-            <a class="reply">Reply</a>
-          </div> {% endcomment %}
         </div>
     </div>
     {% endfor %}
@@ -47,10 +44,6 @@
         <i class="comment dots outline icon"></i>
           There is no comment on this article.
           Do you want to be the first commenter
-          {% if not request.user.is_authenticated %}
-          <br/>
-          Must be authenticate for type comment <a href="{% url 'user:login' %}">Login</a>
-          {% endif %}
         </p>
       </div>
     </div>
@@ -68,10 +61,20 @@
       <i class="icon edit"></i> Add Comment
     </button>
   </form>
+  {% else %}
+  <div class="ui warning message">
+      <div class="content">
+        <p>
+        <i class="lock icon"></i>
+          You must be authorized to write a comment. <a href="{% url 'user:login' %}">Login</a>
+        </p>
+      </div>
+    </div>
   {% endif %}
 </div>
   </div>
 </div>
+<div class="ui hidden divider"></div>
 
 
 {% endblock body %}
