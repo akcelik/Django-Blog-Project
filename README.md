@@ -10,7 +10,6 @@ This aplication developed with Python (3.6) You can find required modules and ve
 * django-js-asset (1.2.2)
 
 ## Database
-========
 Postgresql database is used in the project
 
 "PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance."
@@ -35,5 +34,4 @@ settings.py
 ```
 
 ## Browsers
-========
 Please use Chrome browser to view the app properly
