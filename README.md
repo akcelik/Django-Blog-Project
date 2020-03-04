@@ -19,6 +19,7 @@ Configuration
 For the application to run smoothly, you should make the following configuration according to its environment.
 
 settings.py
+```
   ...
     DATABASES = {
       'default': {
@@ -31,9 +32,8 @@ settings.py
       }
   }
   ...
+```
 
-  
-Code
 Browsers
 ========
 Please use Chrome browser to view the app properly
