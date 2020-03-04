@@ -14,8 +14,8 @@ Postgresql database is used in the project
 
 "PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance."
 
-**Configuration**
-"For the application to run smoothly, you should make the following configuration according to its environment."
+**Configuration** __Emphasis__
+For the application to run smoothly, you should make the following configuration according to its environment.
 
 settings.py
 ```
