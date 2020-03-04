@@ -1,4 +1,4 @@
-Pyhton Django Experiment
+My Django Experiences
 =========================
 This aplication developed with Python (3.6) You can find required modules and versions below
 
