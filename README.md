@@ -3,11 +3,11 @@ Pyhton Django Experiment
 This aplication developed with Python (3.6) You can find required modules and versions below
 
 Requirements
-Django (3.0.3)
-django-ckeditor (5.9.0)
-django-cleanup (4.0.0)
-django-crispy-forms (1.8.1)
-django-js-asset (1.2.2)
+* Django (3.0.3)
+* django-ckeditor (5.9.0)
+* django-cleanup (4.0.0)
+* django-crispy-forms (1.8.1)
+* django-js-asset (1.2.2)
 
 Database
 ========
